@@ -18,6 +18,9 @@
         <li class="nav-item active">
             <a class="nav-link" href="/services">Servicse<span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/posts">Blog<span class="sr-only">(current)</span></a>
+        </li>
         </ul>
     </div>
 </nav>
