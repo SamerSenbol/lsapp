@@ -47,7 +47,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return Post::find($id);
+        $post = Post::find($id);
+        return view ('posts.show')->with('post',$post);
     }
 
     /**
