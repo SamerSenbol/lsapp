@@ -13,8 +13,14 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $posts = Post::orderby('title','desc')->get();
+    {   
+        /* You can use those alternatives: */
+        //$posts = Post::all();
+        //return Post::where('title','post tow')->get();
+        //return Post::where('title','post tow')->take(1)->get();
+        //$posts = DB::select('SELECT * FROM posts');
+
+        $posts = Post::orderby('title','desc')->paginate(1);
         return view('posts.index')->with('posts' , $posts);
     }
 
