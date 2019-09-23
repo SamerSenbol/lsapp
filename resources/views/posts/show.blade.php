@@ -7,10 +7,12 @@
     </div>
     <hr>
 <small>Written on {{$post->created_at}} by {{$post->user->name}} </small>
-    <a href="/posts/{{$post->id}}/edit" class ="btn btn-default">Edit</a>
-
-    {!!Form::open(['action'=>['PostsController@destroy',$post->id],'method'=> 'POST','class' => 'pull-right'])!!}
-        {{Form::hidden('_method','DELETE')}}
-        {{Form::submit('Delete',['class'=> 'btn btn-danger'])}}
-    {!!Form::close()!!}
+    @if (!Auth::guest())
+        <a href="/posts/{{$post->id}}/edit" class ="btn btn-default">Edit</a>
+        
+        {!!Form::open(['action'=>['PostsController@destroy',$post->id],'method'=> 'POST','class' => 'pull-right'])!!}
+            {{Form::hidden('_method','DELETE')}}
+            {{Form::submit('Delete',['class'=> 'btn btn-danger'])}}
+        {!!Form::close()!!}
+    @endif
 @endsection
